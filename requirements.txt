@@ -1,5 +1,5 @@
 streamlit
-tensorflow-cpu
 numpy
 pillow
 gdown
+h5py
