@@ -14,9 +14,9 @@ from tensorflow.keras.preprocessing import image
 import gdown
 import os
 
-# download model from Google Drive if not already present
+# download model if not present
 if not os.path.exists("scene_model.h5"):
-    url = "https://drive.google.com/file/d/18vYalPqYASGaxgS4eZLiZypk-4Z-TwEw/view?usp=drive_link"
+    url = "https://drive.google.com/uc?id=18vYalPqYASGaxgS4eZLiZypk-4Z-TwEw"
     gdown.download(url, "scene_model.h5", quiet=False)
 
 # load model
@@ -34,6 +34,7 @@ if uploaded_file is not None:
     img_array = np.expand_dims(img_array, axis=0)
 
     prediction = model.predict(img_array)
+
     st.image(uploaded_file)
     st.write("Prediction:", class_names[np.argmax(prediction)])
 
